@@ -1,0 +1,11 @@
+<p> Este es el HBS  de lista de eventos </p>
+
+<ul>
+  {{#each model as |evento|}}
+    <li>
+      {{#link-to 'event-detail' evento.id tagName='button'}}
+         {{evento.nombre}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

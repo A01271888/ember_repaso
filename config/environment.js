@@ -30,6 +30,14 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.firebase = {
+      apiKey: "AIzaSyD-ChJsZQkl7DjlFyy-CSdHNIj8zpa8rJ0",
+      authDomain: "emberrepaso.firebaseapp.com",
+      databaseURL: "https://emberrepaso.firebaseio.com",
+      projectId: "emberrepaso",
+      storageBucket: "emberrepaso.appspot.com",
+      messagingSenderId: "396654655675"
+    };
   }
 
   if (environment === 'test') {
