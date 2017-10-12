@@ -5,5 +5,5 @@ export default DS.Model.extend({
   inicio: DS.attr('string'), // date
   fin: DS.attr('string'), // date
 
-  actividades: DS.hasMany('activity')
+  evento: DS.belongsTo('event')
 });

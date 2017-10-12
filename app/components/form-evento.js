@@ -20,15 +20,45 @@ export default Ember.Component.extend({
         return;
       }
 
+      this.get('actividadesArray').forEach((a)=>{
+        a.set('evento', evento);
+      })
+
       // 3) Mandar a guardar
       evento.save().then(()=>{ // para conservar el this
         //esta en el mismo contexto que arriba
         //aqui ya estoy segura de que ya se guardó
-        alert('Ya se guardo');
-        //La ACCIONES LAS ESCUCHA EL QUE INSERTO EL COMPONENTE
-        this.sendAction('didSave');
+
+        Ember.RSVP.all(  this.get('actividadesArray').invoke('save')  ).then(()=>{
+          alert('Ya se guardo');
+          //La ACCIONES LAS ESCUCHA EL QUE INSERTO EL COMPONENTE
+          this.sendAction('didSave');
+        }) // para saber si ya se cumplieron las promesas
       });  // es asíncrono
       // es posible que aún no se haya guardado
+    },
+    saveActivity(){
+      // Inicializa una nueva activity en el store,
+      // y le llena sus atributos con las variables del formulario
+      let activity = this.get('store').createRecord('activity', {
+        nombre: this.get('nombreActividad'),
+        inicio: this.get('inicioActividad'),
+        fin: this.get('finActividad')
+      });
+
+      // La nueva activity se guarda en un arreglo temporal
+      if(!Ember.isPresent(this.get('actividadesArray'))){
+        this.set('actividadesArray', [])
+      };
+      this.get('actividadesArray').pushObject(activity);
+
+      // Se limpian las variables para volver a utilizarlas
+      this.setProperties({
+        nombreActividad: null,
+        inicioActividad: null,
+        finActividad: null
+      });
+
     }
   }
 });
