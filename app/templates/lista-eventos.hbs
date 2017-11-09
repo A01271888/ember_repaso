@@ -1,9 +1,12 @@
 <p> Este es el HBS  de lista de eventos </p>
 
+<!-- <p>Mostrando 10 eventos</p> -->
+<p>{{contadorEventosText}}</p>
+
 <ul>
   {{#each model as |evento|}}
     <li>
-      {{#link-to 'event-detail' evento.id tagName='button'}}
+      {{#link-to 'event-detail' evento.id tagName='button' class="btn btn-info btn-sm"}}
          {{evento.nombre}}
       {{/link-to}}
     </li>

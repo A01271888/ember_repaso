@@ -12,3 +12,6 @@ export default Ember.Component.extend({
     }
   }
 });
+
+
+// firebase deploy --only functions

@@ -2,8 +2,8 @@
 
 <h4> {{model.nombre}} </h4>
 
-{{form-evento evento=model}}
+{{form-evento evento=model didSave=(action 'veAlaLista')}}
 
-<button {{action 'borrar' '¿Deseas borrar?' 143 model}}> Borrar </button>
+<button class="btn btn-primary btn-round" {{action 'borrar' '¿Deseas borrar?' 143 model}}> Borrar </button>
 
 <!-- <a href = "www.google.com" {{action 'borrar'}}> go to google </a> -->

@@ -10,6 +10,10 @@
   </ul>
 </nav>
 
+{{!-- {{#if logged}} --}}
+  <button class="btn btn-primary btn-round" {{action 'signOut'}}> Cerrar Sesion</button>
+{{!--  {{/if}} --}}
+
 <div id="main">
   {{outlet}}
 </div>
