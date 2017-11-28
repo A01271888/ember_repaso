@@ -3,3 +3,19 @@
 <h3>Iniciar Sesion</h3>
 
 <button class="btn btn-primary btn-round" {{action 'sigIn' 'facebook'}}>Iniciar con Facebook</button>
+
+<h3>O usando tu correo electrónico</h3>
+
+<p>
+  <label>Correo </label>
+  {{input value=email}}
+</p>
+
+<p>
+  <label>Contraseña</label>
+  {{input type="password" value=password}}
+</p>
+
+<p>
+  <button {{action 'sigIn' 'email'}}>Iniciar Sesión</button>
+</p>

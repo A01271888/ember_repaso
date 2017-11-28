@@ -14,13 +14,20 @@ export default Ember.Controller.extend({
               }else{
                 return this.transitionToRoute("login");
               }
+              debugger
             }).catch(()=>{
               // Falló el inicio
-              if(this.get('session.isAuthenticated')){
-                return this.transitionToRoute("/");
-              }else{
-                return this.transitionToRoute("lista-eventos");
-              }
+              debugger
+            });
+            break;
+
+          case 'email':
+            this.get('session').open('firebase', {
+              provider: 'password',
+              email: this.get('email'),
+              password: this.get('password')
+            }).then(()=>{
+              return this.transitionToRoute('lista-eventos');
             });
             break;
 

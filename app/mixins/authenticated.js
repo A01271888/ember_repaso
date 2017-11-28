@@ -6,7 +6,7 @@ export default Ember.Mixin.create({
       if(this.get('session.isAuthenticated')){
         // return this.transitionTo("lista-eventos");
       }else {
-        return this.transitionToRoute("login");
+        return this.transitionToRoute('login');
       }
     })
   }
